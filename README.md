@@ -1,47 +1,35 @@
-# Jest + Typescript
+# The Greeting Kata
 
-Plantilla muy básica para crear rápidamente un entorno de desarrollo orientado a ejecutar tests mediante TS y Jest.
+This [Kata](<https://en.wikipedia.org/wiki/Kata_(programming)>) is designed to help practice what a test of a pure function ought to look like. It is intentionally designed to start with a very easy, non-branching base case which slowly becomes addled with complexity as additional requirements are added that will require significant branching and eventually a pressure to compose additional units.
 
-## Índice
+This Kata was suggested by [Nick Gauthier](http://ngauthier.com) and inspired a bit by Bob from [Exercism](http://exercism.io).
 
-- [Jest + Typescript](#jest--typescript)
-  - [Índice](#índice)
-  - [Tecnologías](#tecnologías)
-  - [Npm scripts](#npm-scripts)
-  - [Make scripts](#make-scripts)
+This Kata is designed to be used with [[Detroit-school TDD]].
 
-## Tecnologías
+## Requirement 1
 
-| Nombre                                                 | Detalles                                                                   |
-| ------------------------------------------------------ | -------------------------------------------------------------------------- |
-| 🌐[Typescript](https://www.typescriptlang.org/)        | Lenguaje de programación                                                   |
-| 👁️[ESlint](https://eslint.org/)                        | Linter para controlar errores en nuestro código                            |
-| 🦋[Prettier](https://prettier.io/)                     | Formatea nuestro código                                                    |
-| 🧪[Jest](https://jestjs.io/)                           | Framework de testing                                                       |
-| 🐺[Husky](https://www.npmjs.com/package/husky)         | Comprueba errores en nuestro código para evitar errores en nuestros commit |
-| 🚫[Lint-staged](https://github.com/okonet/lint-staged) | Ejecuta los linters para evitar errores antes de hacer un commit           |
-| 🧾[Hygen](https://www.hygen.io/)                       | Generador de código                                                        |
-| 🐏[Makefile](https://es.wikipedia.org/wiki/Make)       | Gestor de tareas, dependencias...                                          |
+Write a method `greet(name)` that interpolates `name` in a simple greeting. For example, when `name` is `"Bob"`, the method should return a string `"Hello, Bob."`.
 
-## Npm scripts
+## Requirement 2
 
-| Comando      | Detalles                                                                   |
-| ------------ | -------------------------------------------------------------------------- |
-| `ts:watcher` | Ejecuta el watcher del compilador de Typescript                            |
-| `lint`       | Comprueba errores de sintaxis                                              |
-| `format`     | Formatea nuestro código TS                                                 |
-| `test`       | Ejecuta los test                                                           |
-| `precommit`  | Comprueba si hay errores en los staged changes antes de realizar un commit |
-| `new:f`      | Genera una carpeta con una funcción y un test para ésta                    |
+Handle nulls by introducing a stand-in. For example, when `name` is null, then the method should return the string `"Hello, my friend."`
 
-## Make scripts
+## Requirement 3
 
-| Comando     | Detalles                                                                   |
-| ----------- | -------------------------------------------------------------------------- |
-| `init`      | Instala las dependencias del proyecto                                      |
-| `lint`      | Comprueba errores de sintaxis                                              |
-| `format`    | Formatea nuestro código                                                    |
-| `test`      | Ejecuta los test                                                           |
-| `precommit` | Comprueba si hay errores en los staged changes antes de realizar un commit |
-| `new`       | Genera una carpeta con una función y un test para ésta                     |
-| `clean`     | Elimina varias carpetas/ficheros de nuestro proyecto                       |
+Handle shouting. When `name` is all uppercase, then the method should shout back to the user. For example, when `name` is `"JERRY"` then the method should return the string `"HELLO JERRY!"`
+
+## Requirement 4
+
+Handle two names of input. When `name` is an array of two names (or, in languages that support it, varargs or a splat), then both names should be printed. For example, when `name` is `["Jill", "Jane"]`, then the method should return the string `"Hello, Jill and Jane."`
+
+## Requirement 5
+
+Handle an arbitrary number of names as input. When `name` represents more than two names, separate them with commas and close with an Oxford comma and "and". For example, when `name` is `["Amy", "Brian", "Charlotte"]`, then the method should return the string `"Hello, Amy, Brian, and Charlotte."`
+
+## Requirement 6
+
+Allow mixing of normal and shouted names by separating the response into two greetings. For example, when `name` is `["Amy", "BRIAN", "Charlotte"]`, then the method should return the string `"Hello, Amy and Charlotte. AND HELLO BRIAN!"`
+
+## Requirement 7
+
+If any entries in `name` are a string containing a comma, split it as its own input. For example, when `name` is `["Bob", "Charlie, Dianne"]`, then the method should return the string `"Hello, Bob, Charlie, and Dianne."`.

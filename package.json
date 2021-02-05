@@ -1,7 +1,7 @@
 {
-  "name": "jest-typescript-template",
+  "name": "kata-greeting",
   "version": "1.0.0",
-  "description": "Jest typescript template",
+  "description": "kata greeting, learning the basics",
   "author": "David Díaz Alvarez",
   "license": "ISC",
   "main": "index.js",
